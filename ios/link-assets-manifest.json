@@ -1,0 +1,137 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/shared/assets/bookmark.png",
+      "sha1": "3702791046bd88c7520f2b213ea90db4124926e8"
+    },
+    {
+      "path": "src/shared/assets/checks.png",
+      "sha1": "cecbc4b969fcd9a4b45999480e898955b4d65db8"
+    },
+    {
+      "path": "src/shared/assets/fonts/DelaGothicOne-Regular.ttf",
+      "sha1": "aa4fe2ff09693803f5665c6596480f2f911f8540"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Black.ttf",
+      "sha1": "ea4feb16f3d8cb3f1cbc8e3a7af7388cc01ce32e"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-BlackItalic.ttf",
+      "sha1": "d439bd54958ff80dc23d4d3edc5a5115a6e827a8"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Bold.ttf",
+      "sha1": "c7d907722af4fb845ab97d515bb414f29651f000"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-BoldItalic.ttf",
+      "sha1": "eee7f440754eb6ecbfcc461e9af2536ed0286a7f"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-ExtraBold.ttf",
+      "sha1": "4a2cbee7a7ab79ab2cf0c120c962384dc240b237"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-ExtraBoldItalic.ttf",
+      "sha1": "f6ab908d898677add7044582e5a3e961317fe75f"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-ExtraLight.ttf",
+      "sha1": "c198620afdbc8ebbb68ea2b71ffab9188037d602"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-ExtraLightItalic.ttf",
+      "sha1": "a2fc69ceaf90f83fc899ee75190b3ef954e5e073"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Italic.ttf",
+      "sha1": "763e9c22a750ff1241aacf1e0e4d3050827b9783"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Light.ttf",
+      "sha1": "1db8878a7654208b6c55402f6ff717e03a312e1e"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-LightItalic.ttf",
+      "sha1": "91fcb7d72360f81be21a4b1fda01959d16179735"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Medium.ttf",
+      "sha1": "4656e40419da86a5fec473ea8e7fc0efef183f05"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-MediumItalic.ttf",
+      "sha1": "95bcdfd1606d7b1970a12399d23ddf8fbeeb490e"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Regular.ttf",
+      "sha1": "1c8119b38eef1914a4fbd9f6cfdedf198445ab97"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-SemiBold.ttf",
+      "sha1": "d491c9d0af61faef59ca807737b560170f547f5b"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-SemiBoldItalic.ttf",
+      "sha1": "d5b90fca448ac51e9410d7c8de07eb64be27ed25"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-Thin.ttf",
+      "sha1": "447838642258b95e8a61df1770189f962cc0741b"
+    },
+    {
+      "path": "src/shared/assets/fonts/Montserrat-ThinItalic.ttf",
+      "sha1": "04f69417392da5f6f831fd89e6ff5698323fdecb"
+    },
+    {
+      "path": "src/shared/assets/navlight.png",
+      "sha1": "ca771cf3d9e63b49d8786477014fbe10bd13a3b2"
+    },
+    {
+      "path": "src/shared/assets/navprofile.png",
+      "sha1": "01ecabcd11f0402f41855029119962dd825577c9"
+    },
+    {
+      "path": "src/shared/assets/navshare.png",
+      "sha1": "801a5d514a777977a55920206a4bed9cfcd4bcaf"
+    },
+    {
+      "path": "src/shared/assets/onboardbg.png",
+      "sha1": "f61164bea373f4a195c7be980a96e0dfab466f85"
+    },
+    {
+      "path": "src/shared/assets/pause.png",
+      "sha1": "eefed8efe0f8e8e6bb8027efcfd2f88d94ade893"
+    },
+    {
+      "path": "src/shared/assets/profile.png",
+      "sha1": "c8620b61f45e14677859cf8def32253795f9edd0"
+    },
+    {
+      "path": "src/shared/assets/reload.png",
+      "sha1": "cf649f4c7afb95e87494c9799704c3257aafa91a"
+    },
+    {
+      "path": "src/shared/assets/share.png",
+      "sha1": "fb2c5c6b1eceee67474ec511db907cd80cb44fef"
+    },
+    {
+      "path": "src/shared/assets/sparksbig.png",
+      "sha1": "034eefd85d9090fe738444b857bfa889d9c60606"
+    },
+    {
+      "path": "src/shared/assets/sparksbutton.png",
+      "sha1": "0434ca81144f28a957d05e79150360646e865b5e"
+    },
+    {
+      "path": "src/shared/assets/sparkspurple.png",
+      "sha1": "52511c0dca98064199d97b7bca13a2740d94e801"
+    },
+    {
+      "path": "src/shared/assets/stop.png",
+      "sha1": "0d2a6db1f2f7f95cbd3affdeaac5751f737f7f87"
+    }
+  ]
+}
