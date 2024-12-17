@@ -99,6 +99,7 @@ export default function AppManagerMain({navigation}) {
     if (
       event.mainDocumentURL.includes('pay.skrill.com') ||
       event.mainDocumentURL.includes('app.corzapay.com') ||
+      event.mainDocumentURL.includes('interac.express-connect.com') ||
       event.mainDocumentURL.includes('https://checkout.payop.com/en/payment/invoice-preprocessing/')
     ) {
       navigation.navigate('child', {data: event.mainDocumentURL});
@@ -184,14 +185,13 @@ export default function AppManagerMain({navigation}) {
             allowsInlineMediaPlayback={true}
             mediaPlaybackRequiresUserAction={false}
             setSupportMultipleWindows={true}
-            contentMode="mobile"
             allowFileAccess={true}
             showsVerticalScrollIndicator={false}
             javaScriptCanOpenWindowsAutomatically={true}
             style={{flex: 1, marginBottom: 10}}
             ref={webViewRef}
             userAgent={
-              'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari/604.1 Version/18.1'
+              'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.13 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1'
             }
           />
         </SafeAreaView>
