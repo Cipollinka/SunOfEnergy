@@ -5,7 +5,7 @@ import {
   StatusBar,
   TouchableOpacity,
   View,
-  Image, Alert,
+  Image,
 } from 'react-native';
 import WebView from 'react-native-webview';
 
@@ -17,6 +17,30 @@ export default function AppManagerChild({navigation, route}) {
   const [isTwoClick, setTwoClick] = useState(false);
 
   const redirectDomens = ['https://ninecasino.life/#deposit'];
+
+  const openInBrowser = [
+    'mailto:',
+    'itms-appss://',
+    'https://m.facebook.com/',
+    'https://www.facebook.com/',
+    'https://www.instagram.com/',
+    'https://twitter.com/',
+    'https://www.whatsapp.com/',
+    'https://t.me/',
+    'fb://',
+    'conexus://',
+    'bmoolbb://',
+    'cibcbanking://',
+    'bncmobile://',
+    'rbcmobile://',
+    'scotiabank://',
+    'pcfbanking://',
+    'tdct://',
+    'nl.abnamro.deeplink.psd2.consent://',
+    'nl-snsbank-sign://',
+    'nl-asnbank-sign://',
+    'triodosmobilebanking',
+  ];
 
   function backHandler() {
     if (isTwoClick) {
@@ -39,11 +63,14 @@ export default function AppManagerChild({navigation, route}) {
     return false;
   };
 
-  const onError = error => {
-    Alert.alert('Ooops', 'It seems the bank app is not installed...', [{text:'Ok', onPress: () => {navigation.goBack()}}]);
-  };
-
   const onShouldStartLoadWithRequest = event => {
+    if (checkLinkInArray(event.url, openInBrowser)) {
+      try {
+        Linking.openURL(event.url);
+      } catch (error) {}
+      return false;
+    }
+
     if (checkLinkInArray(event.mainDocumentURL, redirectDomens)) {
       navigation.navigate('main');
       return false;
@@ -70,17 +97,20 @@ export default function AppManagerChild({navigation, route}) {
           allowsBackForwardNavigationGestures={true}
           domStorageEnabled={true}
           javaScriptEnabled={true}
+          onError={syntEvent => {
+            const {nativeEvent} = syntEvent;
+            console.log('Webview Error', nativeEvent);
+          }}
           allowsInlineMediaPlayback={true}
           mediaPlaybackRequiresUserAction={false}
-          setSupportMultipleWindows={true}
-          onError={onError}
+          setSupportMultipleWindows={false}
           allowFileAccess={true}
           showsVerticalScrollIndicator={false}
           javaScriptCanOpenWindowsAutomatically={true}
           style={{flex: 1, marginBottom: 10}}
           ref={webViewRef}
           userAgent={
-            'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari/604.1 Version/18.0'
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari/604.1 Version/18.1'
           }
         />
       </SafeAreaView>

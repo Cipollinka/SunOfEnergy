@@ -12,7 +12,7 @@ import {
 import WebView from 'react-native-webview';
 
 import Storage from './Storage';
-import LoadingAppManager from './LoadingAppManager';
+import LoadingAppManager from './LoadingAppManager';;
 
 export default function AppManagerMain({navigation}) {
   const [linkRefresh, setLinkRefresh] = useState('');
@@ -34,30 +34,6 @@ export default function AppManagerMain({navigation}) {
     'https://winspirit.app/?identifier=',
     'https://rocketplay.com/api/payments',
     'https://ninewin.com/',
-  ];
-
-  const browserOpenDomens = [
-    'mailto:',
-    'itms-appss://',
-    'https://m.facebook.com/',
-    'https://www.facebook.com/',
-    'https://www.instagram.com/',
-    'https://twitter.com/',
-    'https://www.whatsapp.com/',
-    'https://t.me/',
-    'fb://',
-    'conexus://',
-    'bmoolbb://',
-    'cibcbanking://',
-    'bncmobile://',
-    'rbcmobile://',
-    'scotiabank://',
-    'pcfbanking://',
-    'tdct://',
-    'nl.abnamro.deeplink.psd2.consent://',
-    'nl-snsbank-sign://',
-    'nl-asnbank-sign://',
-    'triodosmobilebanking',
   ];
 
   const domensForBlock = [
@@ -94,12 +70,11 @@ export default function AppManagerMain({navigation}) {
 
   const onShouldStartLoadWithRequest = event => {
     let currentUrl = event.url;
-    console.log(event);
+    console.log(currentUrl);
 
     if (
       event.mainDocumentURL.includes('pay.skrill.com') ||
       event.mainDocumentURL.includes('app.corzapay.com') ||
-      event.mainDocumentURL.includes('interac.express-connect.com') ||
       event.mainDocumentURL.includes('https://checkout.payop.com/en/payment/invoice-preprocessing/')
     ) {
       navigation.navigate('child', {data: event.mainDocumentURL});
@@ -112,13 +87,6 @@ export default function AppManagerMain({navigation}) {
       webViewRef.current.injectJavaScript(
         `window.location.replace('${linkRefresh}')`,
       );
-    }
-
-    if (checkLinkInArray(currentUrl, browserOpenDomens)) {
-      webViewRef.current.injectJavaScript(
-        `window.location.replace('${linkRefresh}')`,
-      );
-      Linking.openURL(currentUrl);
     }
 
     if (checkLinkInArray(currentUrl, domensForBlock)) {
@@ -159,6 +127,13 @@ export default function AppManagerMain({navigation}) {
     }
   };
 
+  const openNewWindow = event => {
+    const {nativeEvent} = event;
+    const {targetURL} = nativeEvent;
+    console.log(targetURL);
+    navigation.navigate('child', {data: targetURL});
+  };
+
   return (
     <>
       <View style={{flex: 1}}>
@@ -184,14 +159,19 @@ export default function AppManagerMain({navigation}) {
             onLoadEnd={() => finishLoading()}
             allowsInlineMediaPlayback={true}
             mediaPlaybackRequiresUserAction={false}
-            setSupportMultipleWindows={true}
+            onOpenWindow={(syntheticEvent) => {
+              const { nativeEvent } = syntheticEvent;
+              const { targetUrl } = nativeEvent;
+              navigation.navigate('child', {data: targetUrl});
+            }}
+            setSupportMultipleWindows={false}
             allowFileAccess={true}
             showsVerticalScrollIndicator={false}
             javaScriptCanOpenWindowsAutomatically={true}
             style={{flex: 1, marginBottom: 10}}
             ref={webViewRef}
             userAgent={
-              'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.13 (KHTML, like Gecko) Version/18.1 Mobile/15E148 Safari/604.1'
+              'Mozilla/5.0 (iPhone; CPU iPhone OS 18_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari/604.1 Version/18.1'
             }
           />
         </SafeAreaView>
