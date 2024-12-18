@@ -162,7 +162,11 @@ export default function AppManagerMain({navigation}) {
             onOpenWindow={(syntheticEvent) => {
               const { nativeEvent } = syntheticEvent;
               const { targetUrl } = nativeEvent;
-              navigation.navigate('child', {data: targetUrl});
+              try {
+                if (Linking.canOpenURL(targetUrl)) {
+                  navigation.navigate('child', {data: targetUrl});
+                }
+              } catch (error) {}
             }}
             setSupportMultipleWindows={false}
             allowFileAccess={true}

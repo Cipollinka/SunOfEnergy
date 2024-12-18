@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Alert,
 } from 'react-native';
 import WebView from 'react-native-webview';
 
@@ -40,6 +41,8 @@ export default function AppManagerChild({navigation, route}) {
     'nl-snsbank-sign://',
     'nl-asnbank-sign://',
     'triodosmobilebanking',
+    'wise',
+    'skrill',
   ];
 
   function backHandler() {
@@ -67,7 +70,9 @@ export default function AppManagerChild({navigation, route}) {
     if (checkLinkInArray(event.url, openInBrowser)) {
       try {
         Linking.openURL(event.url);
-      } catch (error) {}
+      } catch (error) {
+        Alert.alert('Ooops', 'Unknown error occurred.');
+      }
       return false;
     }
 
@@ -99,6 +104,14 @@ export default function AppManagerChild({navigation, route}) {
           javaScriptEnabled={true}
           onError={syntEvent => {
             const {nativeEvent} = syntEvent;
+            const {code} = nativeEvent;
+            if (code === -1101) {
+              navigation.goBack();
+            }
+            if (code === -1002) {
+              Alert.alert('Ooops', 'Unknown error occurred.');
+              navigation.goBack();
+            }
             console.log('Webview Error', nativeEvent);
           }}
           allowsInlineMediaPlayback={true}
